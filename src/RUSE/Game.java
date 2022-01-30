@@ -10,10 +10,9 @@ public class Game {
 	}
 
 	public static void main(String[] args) {
-		Player player1 = new Player(new Faction(Factions.USA));
-		Player player2 = new Player(new Faction(Factions.RUS));
+		Player[] players = {new Player(new facUSA()), new Player(new facRUS())};
 		RUSEMap map = new Gorodok();
-		Game game = new Game(player1, player2, map);
+		Game game = new Game(players, map);
 	}
 
 }
