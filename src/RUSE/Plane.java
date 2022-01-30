@@ -1,5 +1,5 @@
 package RUSE;
 
-public class Plane {
+public class Plane extends Unit {
 
 }

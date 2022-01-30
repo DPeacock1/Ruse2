@@ -2,13 +2,13 @@ package RUSE;
 
 abstract class Unit {
 
-	private double health;
-	private double maxHealth;
-	private Weapon[] weapons;
-	private Sprite icon;
-	private int buildCost;
-	private int buildTime;
-	private boolean hidden;
+	protected double health;
+	protected double maxHealth;
+	protected Weapon[] weapons;
+	protected Sprite icon;
+	protected int buildCost;
+	protected int buildTime;
+	protected boolean hidden;
 
 	public Unit() {
 

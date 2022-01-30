@@ -1,5 +1,7 @@
 package RUSE;
 
-public class Air {
+abstract class Air extends Unit {
+	
+	protected double airSpeed;
 
 }
