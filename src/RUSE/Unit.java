@@ -9,7 +9,9 @@ abstract class Unit {
 	protected int buildCost;
 	protected int buildTime;
 	protected boolean hidden;
-
+	protected double posx, posy;
+	protected double velx, vely;
+	
 	public Unit() {
 
 	}
@@ -68,5 +70,37 @@ abstract class Unit {
 	
 	public void setHidden(boolean hidden) {
 		this.hidden = hidden;
+	}
+	
+	public double getPosx() {
+		return posx;
+	}
+	
+	public void setPosx(double posx) {
+		this.posx = posx;
+	}
+	
+	public double getPosy() {
+		return posy;
+	}
+	
+	public void setPosy(double posy) {
+		this.posy = posy;
+	}
+	
+	public double getVelx() {
+		return velx;		
+	}
+	
+	public void setVelx(double velx) {
+		this.velx = velx;
+	}
+	
+	public double getVely() {
+		return vely;
+	}
+	
+	public void setVely(double vely) {
+		this.vely = vely;
 	}
 }
