@@ -51,7 +51,7 @@ abstract class Unit {
 	}
 	
 	public void setBuildCost(int buildCost) {
-		this.buildCost
+		this.buildCost = buildCost;
 	}
 
 	public int getBuildTime() {
