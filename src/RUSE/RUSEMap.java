@@ -1,9 +1,16 @@
 package RUSE;
 
-public class RUSEMap {
+import terrain.TerrainSquare;
 
+abstract class RUSEMap {
+	
+	private TerrainSquare[][] terrain = new TerrainSquare[1000][1000];
+	
 	public RUSEMap() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
+	public TerrainSquare[][] getTerrain() {
+		return terrain;
+	}
 }
