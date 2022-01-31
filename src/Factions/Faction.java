@@ -4,8 +4,8 @@ import Units.Unit;
 
 public abstract class Faction {
 	
-	private Unit[] AvailableUnits;
-	private Unit[] ActiveUnits;
+	protected Unit[] AvailableUnits;
+	protected Unit[] ActiveUnits;
 	
 	public Faction() {
 		

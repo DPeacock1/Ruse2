@@ -3,15 +3,18 @@ package RUSE;
 import Units.Unit;
 import javax.vecmath.*;
 
-public class Weapon {
+public abstract class Weapon {
 	
-	private Unit owner;
-	private Vector2d positionOffset;
-	private Rotator rotationOffset;
+	protected Unit owner;
+	protected Vector2d positionOffset;
+	protected Rotator rotationOffset;
+	protected Rotator maxRotationOffset;
 	
-	public Weapon(Unit owner, Vector2d positionOffset, Rotator rotationOffset) {
+	public Weapon(Unit owner) {
 		this.owner = owner;
-		this.positionOffset = positionOffset;
-		this.rotationOffset = rotationOffset;
+	}
+	
+	public Rotator getWorldRotation() {
+		return Rotator.add(owner.getRotation(), rotationOffset);
 	}
 }

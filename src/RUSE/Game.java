@@ -1,5 +1,7 @@
 package RUSE;
 
+import java.util.Scanner;
+
 import Factions.facRUS;
 import Factions.facUSA;
 import Maps.Gorodok;
@@ -17,7 +19,7 @@ public class Game {
 
 	public static void main(String[] args) {
 		Player[] players = {new Player("Squiders", new facUSA()), new Player("s4mdr0id", new facRUS())};
-		RUSEMap map = new Gorodok();
+		Gorodok map = new Gorodok();
 		Game game = new Game(players, map);
 	}
 

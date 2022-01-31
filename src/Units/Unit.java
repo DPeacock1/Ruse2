@@ -1,7 +1,5 @@
 package Units;
 
-import java.security.InvalidParameterException;
-
 import javax.vecmath.*;
 
 import RUSE.Order;
@@ -11,8 +9,8 @@ import RUSE.Weapon;
 
 public abstract class Unit {
 
-	protected double health;
 	protected double maxHealth;
+	protected double health = maxHealth;
 	protected Weapon[] weapons;
 	protected Sprite icon;
 	protected int buildCost;
@@ -21,9 +19,12 @@ public abstract class Unit {
 	protected Point2d position;
 	protected Order activeOrder;
 	protected Rotator rotation, maxTurnSpeed;
+	protected Rotator nextFrameRotation;
 	protected Vector2d velocity;
 
-	public Unit() {
+	public Unit(Point2d position, Order activeOrder) {
+		this.position = position;
+		this.activeOrder = activeOrder;
 	}
 
 	public void Tick(Double tickLength) {
@@ -31,14 +32,21 @@ public abstract class Unit {
 		UpdateRotation(tickLength);
 	}
 
-	public void UpdatePosition(Double tickLength) throws InvalidParameterException {
+	public void UpdatePosition(Double tickLength) throws IllegalArgumentException {
 		if (tickLength <= 0) {
-			throw new InvalidParameterException("Tick length must be more than 0");
+			throw new IllegalArgumentException("Tick length must be more than 0");
 		}
 		Vector2d temp = velocity;
 		temp.scale(1 / tickLength);
 		temp.add(position);
 		setPosition(temp);
+	}
+	
+	public void UpdateRotation(Double tickLength) throws IllegalArgumentException {
+		if (tickLength <= 0) {
+			throw new IllegalArgumentException("Tick length must be more than 0");
+		}
+		
 	}
 
 	public void setOrder(Order order) {
@@ -62,9 +70,17 @@ public abstract class Unit {
 	}
 
 	public Rotator getMaxTurnSpeed() {
-		return this.maxTurnSpeed;
+		return maxTurnSpeed;
 	}
 
+	public Rotator getFrameRotator() {
+		return nextFrameRotation;
+	}
+	
+	public void setNextFrameRotation(Rotator nextFrameRotation) {
+		this.nextFrameRotation = nextFrameRotation;
+	}
+	
 	public double getHealth() {
 		return health;
 	}

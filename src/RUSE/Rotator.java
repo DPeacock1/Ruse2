@@ -14,25 +14,29 @@ public class Rotator {
 	 */
 	public Rotator(Double angle, Boolean radians) {
 		if (radians) {
-			this.angle = angle;
+			this.angle = roundDouble(angle % (2 * Math.PI), 6);
 		} else {
-			this.angle = degsToRads(angle);
+			this.angle = Math.toRadians(angle % 360);
 		}
 	}
 
 	public double getDeg() {
-		return radsToDegs(angle);
+		return roundDouble(Math.toDegrees(angle), 6);
 	}
 
 	public double getRads() {
 		return angle;
 	}
-
-	public static double degsToRads(double degrees) {
-		return degrees * (Math.PI / 180);
+	
+	public static Rotator add(Rotator r1, Rotator r2) {
+		return new Rotator(r1.getRads() + r2.getRads(), true);
 	}
-
-	public static double radsToDegs(double radians) {
-		return radians * (180 / Math.PI);
+	
+	public static Rotator sub(Rotator r1, Rotator r2) {
+		return new Rotator(r1.getRads() - r2.getRads(), true);
+	}
+	
+	public static double roundDouble(Double input, int decimalPlaces) {
+		return Math.round(input * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces);
 	}
 }
