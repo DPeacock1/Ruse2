@@ -1,6 +1,6 @@
 package Factions;
 
-import RUSE.Unit;
+import Units.Unit;
 
 public abstract class Faction {
 	
