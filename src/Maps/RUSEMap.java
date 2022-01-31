@@ -1,8 +1,8 @@
-package RUSE;
+package Maps;
 
 import terrain.TerrainSquare;
 
-abstract class RUSEMap {
+public abstract class RUSEMap {
 	
 	protected TerrainSquare[][] terrain = new TerrainSquare[1000][1000];
 	

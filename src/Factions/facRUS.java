@@ -1,4 +1,4 @@
-package RUSE;
+package Factions;
 
 public class facRUS extends Faction {
 

@@ -1,4 +1,4 @@
-package RUSE;
+package Maps;
 
 import terrain.Grass;
 

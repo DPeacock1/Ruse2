@@ -1,5 +1,10 @@
 package RUSE;
 
+import Factions.facRUS;
+import Factions.facUSA;
+import Maps.Gorodok;
+import Maps.RUSEMap;
+
 public class Game {
 
 	private RUSEMap map;

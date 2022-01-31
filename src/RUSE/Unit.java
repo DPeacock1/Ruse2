@@ -1,6 +1,6 @@
 package RUSE;
 
-abstract class Unit {
+public abstract class Unit {
 
 	protected double health;
 	protected double maxHealth;
@@ -11,9 +11,22 @@ abstract class Unit {
 	protected boolean hidden;
 	protected double posx, posy;
 	protected double velx, vely;
+	protected Order activeOrder;
 	
 	public Unit() {
 
+	}
+	
+	public void setOrder(Order order) {
+		this.activeOrder = order;
+	}
+	
+	public Order getOrder() {
+		return activeOrder;
+	}
+	
+	public void executeOrder() {
+		
 	}
 
 	public double getHealth() {

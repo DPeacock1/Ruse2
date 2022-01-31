@@ -1,4 +1,6 @@
-package RUSE;
+package Units;
+
+import RUSE.Unit;
 
 abstract class Air extends Unit {
 	

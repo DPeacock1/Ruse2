@@ -1,5 +1,7 @@
 package RUSE;
 
+import Factions.Faction;
+
 public class Player {
 	
 	private String name;

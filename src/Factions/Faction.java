@@ -1,6 +1,8 @@
-package RUSE;
+package Factions;
 
-abstract class Faction {
+import RUSE.Unit;
+
+public abstract class Faction {
 	
 	private Unit[] AvailableUnits;
 	private Unit[] ActiveUnits;
