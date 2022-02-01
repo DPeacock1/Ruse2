@@ -2,7 +2,7 @@ package Units;
 
 import javax.vecmath.Point2d;
 
-import RUSE.Order;
+import Orders.Order;
 
 public abstract class Infantry extends Unit {
 	

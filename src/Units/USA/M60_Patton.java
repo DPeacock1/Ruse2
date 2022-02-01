@@ -3,7 +3,7 @@ package Units.USA;
 import javax.vecmath.Point2d;
 import javax.vecmath.Vector2d;
 
-import RUSE.Order;
+import Orders.Order;
 import RUSE.Rotator;
 import RUSE.Sprite;
 import RUSE.TankTurret;

@@ -2,7 +2,7 @@ package Units;
 
 import javax.vecmath.*;
 
-import RUSE.Order;
+import Orders.Order;
 import RUSE.Rotator;
 import RUSE.Sprite;
 import RUSE.Weapon;
@@ -30,6 +30,7 @@ public abstract class Unit {
 	public void Tick(Double tickLength) {
 		UpdatePosition(tickLength);
 		UpdateRotation(tickLength);
+		executeOrder();
 	}
 
 	public void UpdatePosition(Double tickLength) throws IllegalArgumentException {
@@ -58,7 +59,7 @@ public abstract class Unit {
 	}
 
 	public void executeOrder() {
-
+		if (activeOrder)
 	}
 
 	public Rotator getRotation() {
