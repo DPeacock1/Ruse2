@@ -4,7 +4,8 @@ import java.awt.Color;
 
 public abstract class TerrainSquare {
 
-	private Color color;
+	protected Color color;
+	protected Double terrainSpeedMultiplier; 
 	
 	public TerrainSquare() {
 		setColor(color.white);

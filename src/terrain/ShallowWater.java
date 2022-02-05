@@ -2,9 +2,9 @@ package terrain;
 
 import java.awt.Color;
 
-public class ShallowWater extends TerrainSquare{
+public class ShallowWater extends Water{
 
-	public Water() {
-		setColor(Color.blue);
+	public ShallowWater() {
+		setColor(Color.cyan);
 	}
 }
