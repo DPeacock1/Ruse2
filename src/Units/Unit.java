@@ -3,11 +3,12 @@ package Units;
 import javax.vecmath.*;
 
 import Orders.Order;
+import RUSE.RUSEObject;
 import RUSE.Rotator;
 import RUSE.Sprite;
 import RUSE.Weapon;
 
-public abstract class Unit {
+public abstract class Unit extends RUSEObject{
 
 	protected double MAX_HEALTH;
 	protected double health = MAX_HEALTH;
@@ -24,32 +25,16 @@ public abstract class Unit {
 	protected Order activeOrder;
 
 	public Unit(Point2d position, Order activeOrder) {
+		super(position);
 		this.position = position;
 		this.activeOrder = activeOrder;
 	}
 
+	@Override
 	public void Tick(Double dT) {
 		UpdatePosition(dT);
 		UpdateRotation(dT);
 		executeOrder();
-	}
-
-	public void UpdatePosition(Double dT) throws IllegalArgumentException {
-		if (dT <= 0) {
-			throw new IllegalArgumentException("Delta time must be more than 0");
-		}
-		Vector2d temp = velocity;
-		temp.scale(1 / dT);
-		temp.add(position);
-		setPosition(temp);
-		temp.length();
-	}
-
-	public void UpdateRotation(Double dT) throws IllegalArgumentException {
-		if (dT <= 0) {
-			throw new IllegalArgumentException("Delta time must be more than 0");
-		}
-
 	}
 
 	public void setOrder(Order order) {
@@ -62,18 +47,6 @@ public abstract class Unit {
 
 	public void executeOrder() {
 		// if (activeOrder)
-	}
-
-	public Rotator getRotation() {
-		return rotation;
-	}
-
-	public void setRotation(Rotator rotation) {
-		this.rotation = rotation;
-	}
-
-	public Rotator getMaxTurnSpeed() {
-		return MAX_TURN_SPEED;
 	}
 
 	public double getHealth() {
@@ -132,23 +105,4 @@ public abstract class Unit {
 		this.hidden = hidden;
 	}
 
-	public Point2d getPosition() {
-		return position;
-	}
-
-	public void setPosition(Tuple2d position) {
-		this.position = (Point2d) position;
-	}
-
-	public Vector2d getVelocity() {
-		return velocity;
-	}
-
-	public void setVelocity(Vector2d velocity) {
-		this.velocity = velocity;
-	}
-
-	public void setAngVel(Double speed, Rotator direction) {
-		
-	}
 }
