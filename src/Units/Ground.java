@@ -4,6 +4,7 @@ import javax.vecmath.Point2d;
 
 import Maps.RUSEMap;
 import Orders.Order;
+import terrain.TerrainSquare;
 
 public abstract class Ground extends Unit {
 
@@ -16,6 +17,8 @@ public abstract class Ground extends Unit {
 	}
 	
 	public double getGroundSpeedMultiplier(RUSEMap map){
-		TerrainSquare square = map.getTerrainSquare(position)
+		if (map.getTerrainSquare(position)) {
+			
+		}
 	}
 }

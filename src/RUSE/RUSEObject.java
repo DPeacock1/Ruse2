@@ -8,23 +8,26 @@ import Orders.Order;
 
 public abstract class RUSEObject {
 
-	protected Double ACCELERATION;
-	protected Rotator MAX_TURN_SPEED;
+	protected Double MAX_ACCELERATION;
+	protected Rotator MAX_R_ACCELERATION;
+	protected Double MAX_R_Velocity;
 	protected Point2d position;
 	protected Rotator rotation;
+	protected Rotator goalRotation;
 	protected Vector2d velocity;
+	protected Vector2d goalVelocity;
 	protected Sprite icon;
 
 	public RUSEObject(Point2d position) {
 		this.position = position;
 	}
 
-	public void Tick(Double dT) {
+	public void Tick(Double dT) throws IllegalArgumentException {
 		UpdatePosition(dT);
 		UpdateRotation(dT);
 	}
 
-	public void UpdatePosition(Double dT) throws IllegalArgumentException {
+	private void UpdatePosition(Double dT) throws IllegalArgumentException {
 		if (dT <= 0) {
 			throw new IllegalArgumentException("Delta time must be more than 0");
 		}
@@ -35,11 +38,18 @@ public abstract class RUSEObject {
 		temp.length();
 	}
 
-	public void UpdateRotation(Double dT) throws IllegalArgumentException {
+	private void UpdateRotation(Double dT) throws IllegalArgumentException {
 		if (dT <= 0) {
 			throw new IllegalArgumentException("Delta time must be more than 0");
 		}
-
+		
+		
+	}
+	
+	private void UpdateVelocity(Double dT) throws IllegalArgumentException {
+		if (dT <= 0) {
+			throw new IllegalArgumentException("Delta time must be more than 0");
+		}
 	}
 
 	public Rotator getRotation() {
@@ -47,11 +57,7 @@ public abstract class RUSEObject {
 	}
 
 	public void setRotation(Rotator rotation) {
-		this.rotation = rotation;
-	}
-
-	public Rotator getMaxTurnSpeed() {
-		return MAX_TURN_SPEED;
+		this.goalRotation = rotation;
 	}
 
 	public Sprite getIcon() {
@@ -75,14 +81,14 @@ public abstract class RUSEObject {
 	}
 
 	public void setVelocity(Vector2d velocity) {
-		this.velocity = velocity;
+		this.goalVelocity = velocity;
 	}
 
 	public void setAngVel(Double speed, Rotator direction) {
 		double x = Math.abs(speed) * Math.cos(direction.getRads());
 		double y = Math.abs(speed) * Math.sin(direction.getRads());
-		this.velocity = new Vector2d(x, y);
-		this.rotation = direction;
+		this.goalVelocity = new Vector2d(x, y);
+		this.goalRotation = direction;
 	}
 
 	public Double getSpeed() {
