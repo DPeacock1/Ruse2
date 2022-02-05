@@ -1,5 +1,5 @@
 package terrain;
 
-public class Water {
+public class Water extends TerrainSquare{
 
 }

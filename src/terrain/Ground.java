@@ -1,5 +1,11 @@
 package terrain;
 
-public class Ground {
+public abstract class Ground extends TerrainSquare{
+	
+	protected double groundSpeedMultiplier;
+	
+	public double getGroundSpeedMultiplier() {
+		return groundSpeedMultiplier;
+	}
 
 }

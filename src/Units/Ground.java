@@ -17,8 +17,10 @@ public abstract class Ground extends Unit {
 	}
 	
 	public double getGroundSpeedMultiplier(RUSEMap map){
-		if (map.getTerrainSquare(position)) {
-			
+
+		if (map.getTerrainSquare(position) instanceof TGround) {
+			Ground ground = (Ground) map.getTerrainSquare(position);
+			return .getGroundSpeedMultiplier());
 		}
 	}
 }
