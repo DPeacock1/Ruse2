@@ -17,12 +17,12 @@ public class M60_Patton extends Ground {
 		super(position, activeOrder);
 		icon = new Sprite();
 		
-		maxHealth = 100;
+		MAX_HEALTH = 100;
 		weapons = new Weapon[]{new TankTurret(this)};
-		buildCost = 10;
-		buildTime = 0;
+		BUILD_COST = 10;
+		BUILD_TIME = 0;
 		hidden = false;
-		maxTurnSpeed = new Rotator(10.0, false);
+		MAX_TURN_SPEED = new Rotator(10.0, false);
 		groundSpeed = 10;
 		roadSpeedMultiplier = 2;
 		canEnterWoods = true;
