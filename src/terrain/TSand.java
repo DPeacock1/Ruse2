@@ -2,9 +2,9 @@ package terrain;
 
 import java.awt.Color;
 
-public class Sand extends TGround {
+public class TSand extends TGround {
 
-	public Sand() {
+	public TSand() {
 		setColor(Color.yellow);
 		groundSpeedMultiplier = 0.7;
 	}

@@ -2,12 +2,12 @@ package terrain;
 
 import java.awt.Color;
 
-public abstract class TerrainSquare {
+public abstract class TTerrainSquare {
 
 	protected Color color;
 	protected Double terrainSpeedMultiplier; 
 	
-	public TerrainSquare() {
+	public TTerrainSquare() {
 		setColor(color.white);
 	}
 	

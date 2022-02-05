@@ -2,9 +2,9 @@ package terrain;
 
 import java.awt.Color;
 
-public class ShallowWater extends Water{
+public class TShallowWater extends TWater{
 
-	public ShallowWater() {
+	public TShallowWater() {
 		setColor(Color.cyan);
 	}
 }

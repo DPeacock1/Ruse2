@@ -2,9 +2,9 @@ package terrain;
 
 import java.awt.Color;
 
-public class Grass extends TGround {
+public class TGrass extends TGround {
 
-	public Grass() {
+	public TGrass() {
 		setColor(Color.green);
 		groundSpeedMultiplier = 1.0;
 	}
