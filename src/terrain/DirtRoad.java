@@ -2,7 +2,7 @@ package terrain;
 
 import java.awt.Color;
 
-public class DirtRoad extends Ground{
+public class DirtRoad extends TGround{
 	
 	public DirtRoad() {
 		setColor(Color.gray);

@@ -2,7 +2,7 @@ package terrain;
 
 import java.awt.Color;
 
-public class PavedRoad extends Ground{
+public class PavedRoad extends TGround{
 	
 	public PavedRoad() {
 		setColor(Color.black);

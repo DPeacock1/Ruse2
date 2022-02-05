@@ -1,6 +1,6 @@
 package terrain;
 
-public abstract class Ground extends TerrainSquare{
+public abstract class TGround extends TerrainSquare{
 	
 	protected double groundSpeedMultiplier;
 	
