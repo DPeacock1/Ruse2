@@ -2,7 +2,7 @@ package terrain;
 
 import java.awt.Color;
 
-public class Grass extends Ground {
+public class Grass extends TGround {
 
 	public Grass() {
 		setColor(Color.green);

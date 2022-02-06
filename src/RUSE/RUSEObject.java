@@ -8,8 +8,8 @@ import Orders.Order;
 
 public abstract class RUSEObject {
 
-	protected Double MAX_ACCELERATION;
-	protected Rotator MAX_R_ACCELERATION;
+	protected Double ACCELERATION;
+	protected Rotator R_ACCELERATION;
 	protected Double MAX_R_Velocity;
 	protected Point2d position;
 	protected Rotator rotation;
@@ -27,7 +27,7 @@ public abstract class RUSEObject {
 		UpdateRotation(dT);
 	}
 
-	private void UpdatePosition(Double dT) throws IllegalArgumentException {
+	protected void UpdatePosition(Double dT) throws IllegalArgumentException {
 		if (dT <= 0) {
 			throw new IllegalArgumentException("Delta time must be more than 0");
 		}
@@ -38,7 +38,7 @@ public abstract class RUSEObject {
 		temp.length();
 	}
 
-	private void UpdateRotation(Double dT) throws IllegalArgumentException {
+	protected void UpdateRotation(Double dT) throws IllegalArgumentException {
 		if (dT <= 0) {
 			throw new IllegalArgumentException("Delta time must be more than 0");
 		}
@@ -46,10 +46,12 @@ public abstract class RUSEObject {
 		
 	}
 	
-	private void UpdateVelocity(Double dT) throws IllegalArgumentException {
+	protected void UpdateVelocity(Double dT) throws IllegalArgumentException {
 		if (dT <= 0) {
 			throw new IllegalArgumentException("Delta time must be more than 0");
 		}
+		
+		velocity =  Helper.clamp(goalVelocity, velocity - ACCELERATION, velocity + ACCELERATION);
 	}
 
 	public Rotator getRotation() {
