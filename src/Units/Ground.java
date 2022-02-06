@@ -5,7 +5,6 @@ import javax.vecmath.Point2d;
 import Maps.RUSEMap;
 import Orders.Order;
 import terrain.TGround;
-import terrain.TerrainSquare;
 
 public abstract class Ground extends Unit {
 
@@ -16,9 +15,9 @@ public abstract class Ground extends Unit {
 	public Ground(Point2d position, Order activeOrder) {
 		super(position, activeOrder);
 	}
-
-	public double getGroundSpeedMultiplier(RUSEMap map) {
-
+	
+	@Override
+	public double getTerrainSpeedMultiplier(RUSEMap map) {
 		if (map.getTerrainSquare(position) instanceof TGround) {
 			TGround ground = (TGround) map.getTerrainSquare(position);
 			return ground.getGroundSpeedMultiplier();

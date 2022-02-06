@@ -2,6 +2,7 @@ package Units;
 
 import javax.vecmath.*;
 
+import Maps.RUSEMap;
 import Orders.Order;
 import RUSE.RUSEObject;
 import RUSE.Rotator;
@@ -103,6 +104,10 @@ public abstract class Unit extends RUSEObject{
 
 	public void setHidden(boolean hidden) {
 		this.hidden = hidden;
+	}
+	
+	public double getTerrainSpeedMultiplier(RUSEMap map) {
+		return 0;
 	}
 
 }

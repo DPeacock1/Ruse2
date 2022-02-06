@@ -2,9 +2,9 @@ package terrain;
 
 import java.awt.Color;
 
-public class DirtRoad extends TGround{
+public class TDirtRoad extends TGround{
 	
-	public DirtRoad() {
+	public TDirtRoad() {
 		setColor(Color.gray);
 		groundSpeedMultiplier = 1.5;
 	}
