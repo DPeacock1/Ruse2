@@ -2,8 +2,10 @@ package Units;
 
 import javax.vecmath.*;
 
+import Factions.Faction;
 import Maps.RUSEMap;
 import Orders.Order;
+import RUSE.Game;
 import RUSE.RUSEObject;
 import RUSE.Rotator;
 import RUSE.Sprite;
@@ -24,10 +26,11 @@ public abstract class Unit extends RUSEObject{
 	protected int BUILD_TIME;
 	protected boolean hidden;
 	protected Order activeOrder;
+	protected Faction faction;
 
-	public Unit(Point2d position, Order activeOrder) {
-		super(position);
-		this.position = position;
+	public Unit(Game game, Point2d position, Faction faction, Order activeOrder) {
+		super(game, position);
+		this.faction = faction;
 		this.activeOrder = activeOrder;
 	}
 

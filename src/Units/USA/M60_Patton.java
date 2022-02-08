@@ -3,7 +3,9 @@ package Units.USA;
 import javax.vecmath.Point2d;
 import javax.vecmath.Vector2d;
 
+import Factions.Faction;
 import Orders.Order;
+import RUSE.Game;
 import RUSE.Rotator;
 import RUSE.Sprite;
 import RUSE.TankTurret;
@@ -13,8 +15,8 @@ import Units.Ground;
 public class M60_Patton extends Ground {
 	
 
-	public M60_Patton(Point2d position, Order activeOrder) {
-		super(position, activeOrder);
+	public M60_Patton(Game game, Point2d position, Faction faction, Order activeOrder) {
+		super(game,position, faction, activeOrder);
 		icon = new Sprite();
 		
 		MAX_HEALTH = 100;

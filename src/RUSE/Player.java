@@ -1,6 +1,7 @@
 package RUSE;
 
 import Factions.Faction;
+import Units.Unit;
 
 public class Player {
 	
@@ -20,4 +21,8 @@ public class Player {
 		this.name = name;
 	}
 
+	public Faction getFaction() {
+		return faction;
+	}
+	
 }

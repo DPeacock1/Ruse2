@@ -2,8 +2,10 @@ package Units;
 
 import javax.vecmath.Point2d;
 
+import Factions.Faction;
 import Maps.RUSEMap;
 import Orders.Order;
+import RUSE.Game;
 import terrain.TGround;
 
 public abstract class Ground extends Unit {
@@ -12,8 +14,8 @@ public abstract class Ground extends Unit {
 	protected double roadSpeedMultiplier;
 	protected boolean canEnterWoods;
 
-	public Ground(Point2d position, Order activeOrder) {
-		super(position, activeOrder);
+	public Ground(Game game, Point2d position, Faction faction, Order activeOrder) {
+		super(game,position, faction, activeOrder);
 	}
 	
 	@Override

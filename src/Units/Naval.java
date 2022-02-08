@@ -2,8 +2,10 @@ package Units;
 
 import javax.vecmath.Point2d;
 
+import Factions.Faction;
 import Maps.RUSEMap;
 import Orders.Order;
+import RUSE.Game;
 import terrain.TGround;
 import terrain.TWater;
 
@@ -13,8 +15,8 @@ public abstract class Naval extends Unit {
 	protected boolean canEnterShallowWater;
 
 	
-	public Naval(Point2d position, Order activeOrder) {
-		super(position, activeOrder);
+	public Naval(Game game, Point2d position, Faction faction, Order activeOrder) {
+		super(game,position, faction, activeOrder);
 	}
 	
 	@Override

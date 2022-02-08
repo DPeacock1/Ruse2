@@ -8,8 +8,8 @@ import Orders.Order;
 
 public abstract class RUSEObject {
 
-	protected Double ACCELERATION;
-	protected Rotator R_ACCELERATION;
+	protected Double ACCELERATION_TIME;
+	protected Rotator R_ACCELERATION_Time;
 	protected Double MAX_R_Velocity;
 	protected Point2d position;
 	protected Rotator rotation;
@@ -17,14 +17,20 @@ public abstract class RUSEObject {
 	protected Vector2d velocity;
 	protected Vector2d goalVelocity;
 	protected Sprite icon;
+	protected Game game;
+	protected long velocityUpdateTime;
+	protected long rotationUpdateTime;
 
-	public RUSEObject(Point2d position) {
+	public RUSEObject(Game game, Point2d position) {
 		this.position = position;
+		this.game = game;
 	}
 
 	public void Tick(Double dT) throws IllegalArgumentException {
-		UpdatePosition(dT);
+		UpdateVelocity();
+		UpdateRotationSpeed();
 		UpdateRotation(dT);
+		UpdatePosition(dT);
 	}
 
 	protected void UpdatePosition(Double dT) throws IllegalArgumentException {
@@ -38,20 +44,24 @@ public abstract class RUSEObject {
 		temp.length();
 	}
 
-	protected void UpdateRotation(Double dT) throws IllegalArgumentException {
+	protected void UpdateRotation(double dT) throws IllegalArgumentException {
 		if (dT <= 0) {
 			throw new IllegalArgumentException("Delta time must be more than 0");
 		}
 		
+		rotation = goalRotation;
 		
 	}
 	
-	protected void UpdateVelocity(Double dT) throws IllegalArgumentException {
-		if (dT <= 0) {
-			throw new IllegalArgumentException("Delta time must be more than 0");
-		}
-		
-		velocity =  Helper.clamp(goalVelocity, velocity - ACCELERATION, velocity + ACCELERATION);
+	protected void UpdateRotationSpeed() throws IllegalArgumentException {
+		//double sequence = (game.getTime() - rotationUpdateTime) / R_ACCELERATION_Time;
+		//setRotation();
+	}
+
+	protected void UpdateVelocity() {
+		double sequence = (game.getTime() - velocityUpdateTime) / ACCELERATION_TIME;
+
+		setSpeed(Helper.lerp(velocity.length(), goalVelocity.length(), sequence));
 	}
 
 	public Rotator getRotation() {
@@ -60,6 +70,7 @@ public abstract class RUSEObject {
 
 	public void setRotation(Rotator rotation) {
 		this.goalRotation = rotation;
+		rotationUpdateTime = game.getTime();
 	}
 
 	public Sprite getIcon() {
@@ -84,6 +95,7 @@ public abstract class RUSEObject {
 
 	public void setVelocity(Vector2d velocity) {
 		this.goalVelocity = velocity;
+		velocityUpdateTime = game.getTime();
 	}
 
 	public void setAngVel(Double speed, Rotator direction) {
@@ -91,10 +103,25 @@ public abstract class RUSEObject {
 		double y = Math.abs(speed) * Math.sin(direction.getRads());
 		this.goalVelocity = new Vector2d(x, y);
 		this.goalRotation = direction;
+
+		velocityUpdateTime = game.getTime();
+		rotationUpdateTime = game.getTime();
 	}
 
 	public Double getSpeed() {
 		return velocity.length();
 	}
+	
+	public void setSpeed(double speed) {
+		double x = Math.abs(speed) * Math.cos(rotation.getRads());
+		double y = Math.abs(speed) * Math.sin(rotation.getRads());
+		this.goalVelocity = new Vector2d(x, y);
 
+		velocityUpdateTime = game.getTime();
+	}
+
+	protected Double cubicInterp(Double t) {
+		t = Helper.clamp(t, 0.0, 1.0);
+		return (-2) * t * t * t + 3 * t * t;
+	}
 }
