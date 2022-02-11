@@ -4,6 +4,7 @@ import javax.vecmath.Point2d;
 import javax.vecmath.Tuple2d;
 import javax.vecmath.Vector2d;
 
+import GUI.Sprite;
 import Orders.Order;
 
 public abstract class RUSEObject {
@@ -26,14 +27,14 @@ public abstract class RUSEObject {
 		this.game = game;
 	}
 
-	public void Tick(Double dT) throws IllegalArgumentException {
-		UpdateVelocity();
-		UpdateRotationSpeed();
-		UpdateRotation(dT);
-		UpdatePosition(dT);
+	public void tick(Double dT) throws IllegalArgumentException {
+		updateVelocity();
+		updateRotationSpeed();
+		updateRotation(dT);
+		updatePosition(dT);
 	}
 
-	protected void UpdatePosition(Double dT) throws IllegalArgumentException {
+	protected void updatePosition(Double dT) throws IllegalArgumentException {
 		if (dT <= 0) {
 			throw new IllegalArgumentException("Delta time must be more than 0");
 		}
@@ -44,7 +45,7 @@ public abstract class RUSEObject {
 		temp.length();
 	}
 
-	protected void UpdateRotation(double dT) throws IllegalArgumentException {
+	protected void updateRotation(double dT) throws IllegalArgumentException {
 		if (dT <= 0) {
 			throw new IllegalArgumentException("Delta time must be more than 0");
 		}
@@ -53,12 +54,12 @@ public abstract class RUSEObject {
 		
 	}
 	
-	protected void UpdateRotationSpeed() throws IllegalArgumentException {
+	protected void updateRotationSpeed() throws IllegalArgumentException {
 		//double sequence = (game.getTime() - rotationUpdateTime) / R_ACCELERATION_Time;
 		//setRotation();
 	}
 
-	protected void UpdateVelocity() {
+	protected void updateVelocity() {
 		double sequence = (game.getTime() - velocityUpdateTime) / ACCELERATION_TIME;
 
 		setSpeed(Helper.lerp(velocity.length(), goalVelocity.length(), sequence));

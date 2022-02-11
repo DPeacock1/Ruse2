@@ -4,10 +4,10 @@ import javax.vecmath.Point2d;
 import javax.vecmath.Vector2d;
 
 import Factions.Faction;
+import GUI.Sprite;
 import Orders.Order;
 import RUSE.Game;
 import RUSE.Rotator;
-import RUSE.Sprite;
 import RUSE.TankTurret;
 import RUSE.Weapon;
 import Units.Ground;

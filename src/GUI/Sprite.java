@@ -1,4 +1,4 @@
-package RUSE;
+package GUI;
 
 public class Sprite {
 

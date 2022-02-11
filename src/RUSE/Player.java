@@ -25,4 +25,7 @@ public class Player {
 		return faction;
 	}
 	
+	public void tick(double dT) {
+		faction.tick(dT);
+	}
 }

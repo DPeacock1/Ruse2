@@ -1,17 +1,31 @@
 package RUSE;
 
 import Units.Unit;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import javax.vecmath.*;
 
-public abstract class Weapon {
+public abstract class Weapon extends RUSEObject {
 	
 	protected Unit owner;
 	protected Vector2d positionOffset;
 	protected Rotator rotationOffset;
 	protected Rotator maxRotationOffset;
+	protected ArrayList<Weapon> weapons;
 	
 	public Weapon(Unit owner) {
+		super(owner.game, owner.getPosition());
 		this.owner = owner;
+	}
+	
+	public Weapon[] getWeapons() {
+		return (Weapon[]) weapons.toArray();
+	}
+	
+	public void setWeapons(Weapon[] weapons) {
+		this.weapons =   new ArrayList<Weapon>(Arrays.asList(weapons));
 	}
 	
 	public Rotator getWorldRotation() {

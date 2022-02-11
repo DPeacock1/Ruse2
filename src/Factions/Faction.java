@@ -3,6 +3,7 @@ package Factions;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import RUSE.Player;
 import Units.Unit;
 
 public abstract class Faction {
@@ -13,6 +14,12 @@ public abstract class Faction {
 
 	public Faction() {
 		
+	}
+	
+	public void tick(double dT) {
+		for (Unit unit: ActiveUnits) {
+			unit.tick(dT);
+		}
 	}
 	
 	public String getFactionName () {

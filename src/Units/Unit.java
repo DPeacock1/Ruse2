@@ -3,12 +3,12 @@ package Units;
 import javax.vecmath.*;
 
 import Factions.Faction;
+import GUI.Sprite;
 import Maps.RUSEMap;
 import Orders.Order;
 import RUSE.Game;
 import RUSE.RUSEObject;
 import RUSE.Rotator;
-import RUSE.Sprite;
 import RUSE.Weapon;
 
 public abstract class Unit extends RUSEObject{
@@ -35,10 +35,14 @@ public abstract class Unit extends RUSEObject{
 	}
 
 	@Override
-	public void Tick(Double dT) {
-		UpdatePosition(dT);
-		UpdateRotation(dT);
+	public void tick(Double dT) {
+		updatePosition(dT);
+		updateRotation(dT);
 		executeOrder();
+		
+		for (Weapon weapon : weapons) {
+			weapon.tick(dT);
+		}
 	}
 
 	public void setOrder(Order order) {
